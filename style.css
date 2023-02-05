@@ -1,0 +1,27 @@
+body{
+    margin:0px;
+    padding:0px;
+    
+}
+.container{
+    display:grid;
+    grid-template-rows: 2fr 1fr 2fr;
+}
+.mainWeather{
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+.todaysWeather{
+    height:200px;
+    width: 400px;
+    background-color:red;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
