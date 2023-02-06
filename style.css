@@ -1,3 +1,11 @@
+@keyframes slide {
+    0% {
+        transform: translate(100%,-100%);
+    }
+    100% {
+        transform: translate(30,-30);
+    }
+}
 body{
     margin:0px;
     padding:0px;
@@ -5,7 +13,9 @@ body{
 }
 .container{
     display:grid;
-    grid-template-rows: 2fr 1fr 2fr;
+    grid-template-rows: 2fr 0.5fr 1.8fr;
+    background: no-repeat url('images/day.png');
+    background-size: cover;
 }
 .mainWeather{
     height:300px;
@@ -15,13 +25,42 @@ body{
     
 }
 .todaysWeather{
+    display:grid;
+    grid-template-columns: 2fr 1.5fr;
     height:200px;
     width: 400px;
-    background-color:red;
+    background-color:rgba(0,0,0,0.6);
+    border-radius:5px;
+    object-fit: contain;
+    overflow: hidden;
+}
+.visulisation{
+    justify-self: center;
+    align-self: start;
+    height:100%;
+    width:100%;
+    border-radius:0% 0% 50% 50%;
+    background-size: cover ;
+    background-repeat: no-repeat;
+}
+.test{
+    animation: 2s ease-in-out 0s 1 slide;
 }
 .input{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+.otherDays{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.other{
+    height:150px;
+    width: 150px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 5px;
 }

@@ -1,4 +1,5 @@
 const btn = document.getElementById("getWeather");
+const visulisation = document.querySelector(".visulisation");
 const date = new Date();
 const container = document.querySelector(".container");
 async function getWeather(city) {
@@ -20,14 +21,25 @@ async function getWeather(city) {
       );
     }
     let result = await Weather.json();
-    console.log(result);
+    return result;
   } catch {
     console.log("error has accured");
   }
 }
 if (date.getHours() < 7) {
+  container.style.cssText =
+    'background:no-repeat URL("images/night.png");background-size:cover';
 }
 btn.addEventListener("click", () => {
   const location = document.getElementById("location");
-  getWeather(location.value);
+  let weather = getWeather(location.value);
+  weather.then((weather) => {
+    if (weather.daily.weathercode[0] < 25) {
+      visulisation.classList.add("test");
+      visulisation.style.backgroundImage = 'url("images/sun-star.png")';
+    }
+    console.log(weather.daily.weathercode[0]);
+  });
 });
+
+getWeather("el eulma");
